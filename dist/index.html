@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Volto Control LLP builds industrial electrical control panels, PLC-SCADA automation systems, and instrumentation solutions for high-performance plants." />
+    <meta name="keywords" content="industrial automation, PLC, SCADA, electrical control panels, instrumentation, MCC panel, PCC panel" />
+    <meta name="author" content="Volto Control LLP" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0A1628" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Volto Control LLP" />
+    <meta property="og:description" content="Industrial automation and control panel solutions for modern manufacturing plants." />
+    <meta property="og:site_name" content="Volto Control LLP" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="/images/hero-poster.jpg" />
+    <meta property="og:image:alt" content="Volto Control industrial automation showcase" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Volto Control LLP" />
+    <meta name="twitter:description" content="Industrial automation and control panel solutions for modern manufacturing plants." />
+    <meta name="twitter:image" content="/images/hero-poster.jpg" />
+    <title>Volto Control LLP</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background: #061629;
+        font-family: "DM Sans", "Segoe UI", sans-serif;
+      }
+
+      .volto-loader {
+        position: relative;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        overflow: hidden;
+        background:
+          radial-gradient(120% 100% at 8% 2%, rgba(62, 136, 255, 0.26) 0%, rgba(6, 22, 41, 0) 45%),
+          radial-gradient(120% 100% at 92% 10%, rgba(0, 191, 230, 0.24) 0%, rgba(6, 22, 41, 0) 40%),
+          linear-gradient(130deg, #04101f 0%, #092040 48%, #061629 100%);
+      }
+
+      .volto-loader::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(111, 180, 255, 0.08) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(111, 180, 255, 0.08) 1px, transparent 1px);
+        background-size: 56px 56px;
+        opacity: 0.22;
+        mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+      }
+
+      .volto-loader__orb {
+        position: absolute;
+        border-radius: 9999px;
+        filter: blur(46px);
+        opacity: 0.5;
+        animation: voltoFloat 8s ease-in-out infinite;
+      }
+
+      .volto-loader__orb--a {
+        width: 320px;
+        height: 320px;
+        right: -80px;
+        top: 8%;
+        background: rgba(36, 118, 235, 0.5);
+      }
+
+      .volto-loader__orb--b {
+        width: 240px;
+        height: 240px;
+        left: -70px;
+        bottom: 4%;
+        background: rgba(0, 186, 226, 0.45);
+        animation-delay: 1.6s;
+      }
+
+      .volto-loader__card {
+        position: relative;
+        width: min(560px, 100%);
+        border: 1px solid rgba(211, 229, 255, 0.24);
+        border-radius: 28px;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.05) 40%, rgba(0, 188, 226, 0.14) 100%),
+          rgba(11, 29, 55, 0.66);
+        box-shadow:
+          0 30px 80px rgba(4, 15, 30, 0.52),
+          inset 0 1px 0 rgba(255, 255, 255, 0.22);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        padding: 34px 30px 30px;
+        z-index: 2;
+        overflow: hidden;
+      }
+
+      .volto-loader__card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(115deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0) 42%);
+        pointer-events: none;
+      }
+
+      .volto-loader__badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        border-radius: 9999px;
+        border: 1px solid rgba(138, 196, 255, 0.32);
+        background: rgba(9, 31, 59, 0.58);
+        color: #8ec4ff;
+        padding: 8px 14px;
+        font-size: 11px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      .volto-loader__pulse {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #00c5ea;
+        box-shadow: 0 0 0 rgba(0, 197, 234, 0.45);
+        animation: voltoPulse 1.7s ease-out infinite;
+      }
+
+      .volto-loader__header {
+        margin-top: 18px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .volto-loader__mark {
+        height: 46px;
+        display: inline-flex;
+        align-items: flex-end;
+        gap: 4px;
+      }
+
+      .volto-loader__mark span {
+        width: 7px;
+        border-radius: 4px;
+        transform-origin: bottom;
+        animation: voltoBar 1.2s ease-in-out infinite;
+      }
+
+      .volto-loader__mark span:nth-child(1) {
+        height: 22px;
+        background: rgba(240, 247, 255, 0.85);
+      }
+
+      .volto-loader__mark span:nth-child(2) {
+        height: 30px;
+        background: #2f79e4;
+        animation-delay: 0.1s;
+      }
+
+      .volto-loader__mark span:nth-child(3) {
+        height: 36px;
+        background: #00c0e8;
+        animation-delay: 0.2s;
+      }
+
+      .volto-loader__mark span:nth-child(4) {
+        height: 42px;
+        background: #2ad36f;
+        animation-delay: 0.3s;
+      }
+
+      .volto-loader__title {
+        margin: 0;
+        color: #ffffff;
+        font-size: clamp(34px, 5vw, 48px);
+        line-height: 1;
+        letter-spacing: -0.03em;
+        font-weight: 700;
+        font-family: "Syne", "DM Sans", sans-serif;
+      }
+
+      .volto-loader__subtitle {
+        margin: 6px 0 0;
+        color: #3bd3f6;
+        text-transform: uppercase;
+        letter-spacing: 0.34em;
+        font-size: clamp(11px, 1.6vw, 14px);
+        font-weight: 700;
+      }
+
+      .volto-loader__copy {
+        margin: 22px 0 0;
+        color: rgba(227, 238, 255, 0.86);
+        font-size: 16px;
+        line-height: 1.55;
+      }
+
+      .volto-loader__status {
+        margin-top: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        color: rgba(183, 205, 233, 0.85);
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .volto-loader__status strong {
+        color: #8fd0ff;
+        font-weight: 700;
+      }
+
+      .volto-loader__progress {
+        margin-top: 10px;
+        height: 9px;
+        border-radius: 9999px;
+        background: rgba(147, 185, 233, 0.18);
+        border: 1px solid rgba(169, 202, 245, 0.22);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .volto-loader__progress-fill {
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 68%;
+        border-radius: inherit;
+        background: linear-gradient(92deg, #1760dc 0%, #1885f1 45%, #00c3e8 100%);
+        box-shadow: 0 0 20px rgba(23, 110, 223, 0.42);
+        animation: voltoProgress 2.2s ease-in-out infinite;
+      }
+
+      .volto-loader__progress-fill::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(120deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.55) 50%, rgba(255, 255, 255, 0) 100%);
+        transform: translateX(-120%);
+        animation: voltoShimmer 1.6s ease-in-out infinite;
+      }
+
+      .volto-loader__dots {
+        margin-top: 18px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .volto-loader__dots span {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: rgba(160, 205, 255, 0.58);
+        animation: voltoDots 1.2s ease-in-out infinite;
+      }
+
+      .volto-loader__dots span:nth-child(2) {
+        animation-delay: 0.15s;
+      }
+
+      .volto-loader__dots span:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+
+      @keyframes voltoPulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(0, 197, 234, 0.5);
+        }
+        70% {
+          box-shadow: 0 0 0 10px rgba(0, 197, 234, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(0, 197, 234, 0);
+        }
+      }
+
+      @keyframes voltoFloat {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-14px);
+        }
+      }
+
+      @keyframes voltoBar {
+        0%,
+        100% {
+          transform: scaleY(0.82);
+        }
+        50% {
+          transform: scaleY(1.08);
+        }
+      }
+
+      @keyframes voltoProgress {
+        0%,
+        100% {
+          width: 64%;
+        }
+        50% {
+          width: 84%;
+        }
+      }
+
+      @keyframes voltoShimmer {
+        100% {
+          transform: translateX(130%);
+        }
+      }
+
+      @keyframes voltoDots {
+        0%,
+        100% {
+          transform: translateY(0);
+          opacity: 0.6;
+        }
+        50% {
+          transform: translateY(-4px);
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .volto-loader__card {
+          padding: 24px 18px 22px;
+        }
+
+        .volto-loader__header {
+          gap: 12px;
+        }
+
+        .volto-loader__subtitle {
+          letter-spacing: 0.22em;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .volto-loader *,
+        .volto-loader::before,
+        .volto-loader::after {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-bjMYXgPi.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-O6S4a9cg.css">
+  </head>
+  <body>
+    <div id="root">
+      <div class="volto-loader" role="status" aria-live="polite" aria-label="Loading Volto Control website">
+        <div class="volto-loader__orb volto-loader__orb--a" aria-hidden="true"></div>
+        <div class="volto-loader__orb volto-loader__orb--b" aria-hidden="true"></div>
+
+        <div class="volto-loader__card">
+          <div class="volto-loader__badge">
+            <span class="volto-loader__pulse" aria-hidden="true"></span>
+            System Initialization
+          </div>
+
+          <div class="volto-loader__header">
+            <div class="volto-loader__mark" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <div>
+              <h1 class="volto-loader__title">Volto Control</h1>
+              <p class="volto-loader__subtitle">Industrial Automation Platform</p>
+            </div>
+          </div>
+
+          <p class="volto-loader__copy">Loading control intelligence, process analytics, and deployment modules.</p>
+
+          <div class="volto-loader__status">
+            <span>Boot Stage</span>
+            <strong>SCADA + PLC</strong>
+          </div>
+
+          <div class="volto-loader__progress" aria-hidden="true">
+            <div class="volto-loader__progress-fill"></div>
+          </div>
+
+          <div class="volto-loader__dots" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <noscript>
+      <div style="padding:16px;font-family:'DM Sans',sans-serif;">
+        JavaScript is required to run this website.
+      </div>
+    </noscript>
+  </body>
+</html>

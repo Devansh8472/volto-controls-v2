@@ -1,0 +1,18 @@
+{
+  "name": "Volto Control LLP",
+  "short_name": "Volto",
+  "description": "Industrial electrical control panels, PLC-SCADA automation, and instrumentation solutions.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0A1628",
+  "theme_color": "#0A1628",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
