@@ -29,7 +29,7 @@ const techPartners = [
 
 const testimonials = [
   { quote: "Volto Control delivered a complete MCC panel setup for our dairy plant — on time, within budget, and with impeccable quality.", author: "Plant Head", company: "Amul Processing Unit" },
-  { quote: "Their SCADA integration expertise has transformed how we monitor our bottling line. Real-time visibility we never had before.", author: "Engineering Manager", company: "Leading Beverage Brand" },
+  { quote: "Their control integration expertise has transformed how we monitor our bottling line. Real-time visibility we never had before.", author: "Engineering Manager", company: "Leading Beverage Brand" },
   { quote: "ISO certified, responsive support, and panels that simply work. Volto Control is our go-to automation partner.", author: "VP Operations", company: "Pharmaceutical Manufacturer" },
 ];
 

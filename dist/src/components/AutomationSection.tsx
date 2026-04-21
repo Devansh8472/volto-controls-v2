@@ -3,15 +3,15 @@ import { useEffect, useRef } from "react";
 const capabilities = [
   {
     icon: "📡",
-    title: "Remote SCADA & Telemetry",
-    desc: "Pipeline SCADA systems with remote monitoring, real-time telemetry, and advanced data visualization for distributed infrastructure.",
-    tags: ["SCADA", "Telemetry", "Real-time"],
+    title: "Remote Monitoring & Telemetry",
+    desc: "Remote monitoring systems with live telemetry and advanced data visualization for distributed infrastructure.",
+    tags: ["Monitoring", "Telemetry", "Real-time"],
   },
   {
     icon: "🔬",
-    title: "PLC/SCADA Process Automation",
+    title: "PLC & HMI Process Control",
     desc: "Full-lifecycle automation from consultation through commissioning — programming, integration, and long-term maintenance support.",
-    tags: ["PLC", "SCADA", "Commissioning"],
+    tags: ["PLC", "HMI", "Commissioning"],
   },
   {
     icon: "🔗",
@@ -119,18 +119,18 @@ export default function AutomationSection() {
             </h2>
             <p className="text-[#555] leading-relaxed text-base">
               From initial consultation to long-term maintenance — we provide complete automation 
-              lifecycle management. Our expertise spans PLC programming, SCADA development, 
+              lifecycle management. Our expertise spans PLC programming, HMI development, 
               and multi-protocol industrial networking.
             </p>
           </div>
 
-          {/* SCADA diagram */}
+          {/* Control network diagram */}
           <div className="reveal-right">
             <div className="bg-[#0A1628] rounded-2xl p-6 border border-white/10 relative overflow-hidden">
               {/* Grid bg */}
               <div className="absolute inset-0 grid-bg opacity-20" />
               <div className="relative">
-                <div className="text-xs text-[#00BCD4] font-mono-stats mb-3">SCADA ARCHITECTURE</div>
+                <div className="text-xs text-[#00BCD4] font-mono-stats mb-3">CONTROL ARCHITECTURE</div>
                 {/* Network diagram */}
                 <div className="space-y-3">
                   {/* Level 3 */}
@@ -145,7 +145,7 @@ export default function AutomationSection() {
                   </div>
                   {/* Level 2 */}
                   <div className="flex justify-center gap-4">
-                    {["SCADA Server", "HMI Station"].map((node) => (
+                    {["Control Server", "HMI Station"].map((node) => (
                       <div key={node} className="bg-[#00BCD4]/20 border border-[#00BCD4]/40 rounded-lg px-3 py-2 text-xs text-[#00BCD4] font-mono-stats">
                         {node}
                       </div>

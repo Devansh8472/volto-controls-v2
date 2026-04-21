@@ -20,20 +20,15 @@ export default function Footer() {
         <div className="grid lg:grid-cols-4 gap-10 mb-10">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="flex gap-[3px] items-end h-7">
-                <div className="w-[5px] rounded-sm bg-white/80" style={{ height: '60%' }} />
-                <div className="w-[5px] rounded-sm bg-[#1565C0]" style={{ height: '75%' }} />
-                <div className="w-[5px] rounded-sm bg-[#00BCD4]" style={{ height: '90%' }} />
-                <div className="w-[5px] rounded-sm bg-[#1DB954]" style={{ height: '100%' }} />
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="text-lg font-bold text-white" style={{ fontFamily: 'Syne, sans-serif' }}>Volto</span>
-                <span className="text-[10px] font-light text-white/30 tracking-[0.2em]">CONTROL LLP</span>
-              </div>
+            <div className="inline-flex items-center justify-center p-2 mb-6 rounded-xl bg-white/95 border border-white/10 shadow-[0_0_20px_rgba(255,255,255,0.05)]">
+              <img
+                src="/logos/Volto_logo.jpg"
+                alt="Volto Control LLP"
+                className="h-12 w-auto rounded-md object-contain mix-blend-multiply"
+              />
             </div>
             <p className="text-sm text-white/40 leading-relaxed max-w-xs mb-4">
-              Powering Industry. Automating Excellence. — Electrical panel manufacturing and industrial automation since 2002.
+              Powering Industry. Delivering Reliability. — Electrical panel manufacturing, generator solutions, and turnkey execution since 2002.
             </p>
             <div className="flex items-center gap-2 text-xs text-white/30">
               <div className="px-2 py-1 border border-white/10 rounded text-[10px] font-mono-stats text-[#00BCD4]">ISO 9001:2015</div>

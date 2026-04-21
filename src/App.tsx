@@ -8,7 +8,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ProductsSection from "@/components/ProductsSection";
-import AutomationSection from "@/components/AutomationSection";
+
 import ClientsSection from "@/components/ClientsSection";
 import ExportsSection from "@/components/ExportsSection";
 import QualitySection from "@/components/QualitySection";
@@ -73,7 +73,7 @@ function Home() {
             <ClientsSection />
             <ProductsSection />
             <QualitySection />
-            <AutomationSection />
+
             <ExportsSection />
             <AboutSection />
             <ContactSection />

@@ -12,12 +12,7 @@ const navLinks = [
 
 const compactLinks = navLinks.slice(0, 4);
 
-const brandMark = [
-  { height: "22px", className: "bg-[#F0F7FF]/90", delay: "0ms" },
-  { height: "30px", className: "bg-[#2F79E4]", delay: "100ms" },
-  { height: "36px", className: "bg-[#00C0E8]", delay: "200ms" },
-  { height: "42px", className: "bg-[#2AD36F]", delay: "300ms" },
-];
+
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -120,33 +115,11 @@ export default function Navbar() {
               data-testid="logo"
               aria-label="Go to top of page"
             >
-              <span className={`inline-flex h-[46px] items-end gap-[4px] transition-[transform,opacity] duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${scrolled ? "scale-90" : "scale-100"}`}>
-                {brandMark.map((bar, index) => (
-                  <span
-                    key={index}
-                    className={`inline-block w-[7px] rounded-[4px] ${bar.className} transition-colors duration-300`}
-                    style={{
-                      height: bar.height,
-                      animation: "navbarVoltoBar 1.2s ease-in-out infinite",
-                      animationDelay: bar.delay,
-                      transformOrigin: "bottom",
-                    }}
-                  />
-                ))}
-              </span>
-              <span className="flex min-w-0 flex-col leading-none">
-                <span
-                  className={`font-semibold tracking-[-0.03em] text-slate-950 transition-[font-size,letter-spacing,transform] duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${scrolled ? "text-[18px]" : "text-[22px]"}`}
-                  style={{ fontFamily: "Syne, sans-serif" }}
-                >
-                  Volto
-                </span>
-                <span
-                  className={`mt-0.5 text-[10px] font-medium uppercase tracking-[0.26em] transition-[opacity,transform,letter-spacing] duration-[350ms] ${scrolled ? "opacity-75" : "opacity-60"}`}
-                >
-                  CONTROL LLP
-                </span>
-              </span>
+              <img
+                src="/logos/Volto_logo.jpg"
+                alt="Volto Control LLP"
+                className={`w-auto object-contain transition-all duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] mix-blend-multiply ${scrolled ? "h-10" : "h-12"}`}
+              />
             </a>
 
             <div className="hidden lg:flex items-center justify-center">

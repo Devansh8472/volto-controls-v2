@@ -67,21 +67,17 @@ export default function ContactSection() {
           {/* Company info */}
           <div className="lg:col-span-2 reveal-left space-y-6">
             {/* Logo */}
-            <div className="flex items-center gap-3 mb-8">
-              <div className="flex gap-[3px] items-end h-8">
-                <div className="w-[5px] rounded-sm" style={{ height: '60%', background: '#fff' }} />
-                <div className="w-[5px] rounded-sm bg-[#1565C0]" style={{ height: '75%' }} />
-                <div className="w-[5px] rounded-sm bg-[#00BCD4]" style={{ height: '90%' }} />
-                <div className="w-[5px] rounded-sm bg-[#1DB954]" style={{ height: '100%' }} />
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="text-xl font-bold text-white" style={{ fontFamily: 'Syne, sans-serif' }}>Volto</span>
-                <span className="text-[10px] font-light text-white/40 tracking-[0.2em]">CONTROL LLP</span>
-              </div>
+            <div className="inline-flex items-center justify-center p-2 mb-8 rounded-xl bg-white/95 border border-white/15 shadow-[0_0_24px_rgba(255,255,255,0.08)]">
+              <img
+                src="/logos/Volto_logo.jpg"
+                alt="Volto Control LLP"
+                className="h-16 w-auto rounded-md object-contain mix-blend-multiply"
+                loading="lazy"
+              />
             </div>
 
             <p className="text-white/50 text-sm leading-relaxed">
-              India's trusted partner for electrical panel manufacturing and industrial automation — 
+              India's trusted partner for electrical panel manufacturing, generator control, and turnkey electrical solutions — 
               serving 20+ years across dairy, pharma, sugar, textile, and more.
             </p>
 

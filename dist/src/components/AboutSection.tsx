@@ -9,7 +9,7 @@ const highlights = [
 
 const milestones = [
   { year: "2002", event: "Founded as Pantech Controls in Vadodara, Gujarat" },
-  { year: "2008", event: "Expanded into PLC/SCADA automation systems" },
+  { year: "2008", event: "Expanded into PLC/HMI control systems" },
   { year: "2012", event: "Achieved ISO 9001 certification" },
   { year: "2016", event: "Began exports to Nigeria, Dubai, and Bangladesh" },
   { year: "2020", event: "Rebranded to Volto Control LLP" },
@@ -51,7 +51,7 @@ export default function AboutSection() {
             Engineering Excellence Since 2002
           </h2>
           <p className="text-[#555] max-w-2xl mx-auto text-base leading-relaxed">
-            From a local electrical panel manufacturer to a global industrial automation leader — 
+            From a local electrical panel manufacturer to a trusted electrical turnkey solutions provider — 
             Volto Control LLP has grown into one of India's most trusted engineering companies.
           </p>
         </div>
@@ -106,8 +106,15 @@ export default function AboutSection() {
               Mitsubishi, and Danfoss, we bring world-class technology to every installation.
             </p>
 
+            <p className="text-[#555] leading-relaxed mb-8">
+              Our diesel-powered generator solutions span 7.5 kVA to 2250 kVA for standby, emergency,
+              continuous, and prime power requirements. Supported by experienced engineers and
+              Cummins factory-trained technicians, we deliver dependable power systems for clients
+              across India and the Middle East.
+            </p>
+
             <div className="flex flex-wrap gap-3">
-              {["Vadodara, Gujarat", "Est. 2002", "ABB Authorized Partner", "5+ Export Markets"].map((tag) => (
+              {["Vadodara, Gujarat", "Est. 2002", "ABB Authorized Partner", "DG Sets 7.5-2250 kVA", "5+ Export Markets"].map((tag) => (
                 <span
                   key={tag}
                   className="px-3 py-1.5 text-xs font-medium bg-[#F5F7FA] border border-[#E2E8F0] text-[#0A1628] rounded-full"
