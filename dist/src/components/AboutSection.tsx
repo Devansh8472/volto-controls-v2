@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { companyContact } from "@/lib/company";
 
 const highlights = [
   { icon: "📅", title: "20+ Years", desc: "Established 2002 as Pantech Controls, now Volto Control LLP" },
@@ -8,7 +9,7 @@ const highlights = [
 ];
 
 const milestones = [
-  { year: "2002", event: "Founded as Pantech Controls in Vadodara, Gujarat" },
+  { year: "2002", event: `Founded as Pantech Controls in ${companyContact.cityState}` },
   { year: "2008", event: "Expanded into PLC/HMI control systems" },
   { year: "2012", event: "Achieved ISO 9001 certification" },
   { year: "2016", event: "Began exports to Nigeria, Dubai, and Bangladesh" },
@@ -96,7 +97,7 @@ export default function AboutSection() {
             </blockquote>
 
             <p className="text-[#555] leading-relaxed mb-6">
-              Incorporated in Vadodara, Gujarat — India's industrial heartland — Volto Control LLP specializes 
+              Incorporated in {companyContact.cityState} - part of the NCR industrial corridor - Volto Control LLP specializes 
               in designing, manufacturing, and supplying high-quality electrical control panels and automation systems 
               for industries across India and internationally.
             </p>
@@ -114,7 +115,7 @@ export default function AboutSection() {
             </p>
 
             <div className="flex flex-wrap gap-3">
-              {["Vadodara, Gujarat", "Est. 2002", "ABB Authorized Partner", "DG Sets 7.5-2250 kVA", "5+ Export Markets"].map((tag) => (
+              {[companyContact.cityState, "Est. 2002", "ABB Authorized Partner", "DG Sets 7.5-2250 kVA", "5+ Export Markets"].map((tag) => (
                 <span
                   key={tag}
                   className="px-3 py-1.5 text-xs font-medium bg-[#F5F7FA] border border-[#E2E8F0] text-[#0A1628] rounded-full"

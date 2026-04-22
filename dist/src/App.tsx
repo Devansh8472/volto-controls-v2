@@ -8,12 +8,13 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ProductsSection from "@/components/ProductsSection";
-import AutomationSection from "@/components/AutomationSection";
+
 import ClientsSection from "@/components/ClientsSection";
 import ExportsSection from "@/components/ExportsSection";
 import QualitySection from "@/components/QualitySection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import FloatingContactCTA from "@/components/FloatingContactCTA";
 
 const queryClient = new QueryClient();
 
@@ -73,7 +74,7 @@ function Home() {
             <ClientsSection />
             <ProductsSection />
             <QualitySection />
-            <AutomationSection />
+
             <ExportsSection />
             <AboutSection />
             <ContactSection />
@@ -83,6 +84,7 @@ function Home() {
         )}
       </main>
 
+      <FloatingContactCTA />
       {isMainContentVisible && <Footer />}
     </div>
   );

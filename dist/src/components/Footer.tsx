@@ -1,7 +1,8 @@
+import { companyContact } from "@/lib/company";
+
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "Products", href: "#products" },
-  { label: "Automation", href: "#automation" },
   { label: "Clients", href: "#clients" },
   { label: "Exports", href: "#exports" },
   { label: "Quality", href: "#quality" },
@@ -17,12 +18,12 @@ export default function Footer() {
   return (
     <footer className="bg-[#060F1E] border-t border-white/5 pt-12 pb-6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-4 gap-10 mb-10">
+        <div className="grid lg:grid-cols-5 gap-10 mb-10">
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="inline-flex items-center justify-center p-2 mb-6 rounded-xl bg-white/95 border border-white/10 shadow-[0_0_20px_rgba(255,255,255,0.05)]">
               <img
-                src="/logos/Volto_logo.jpg"
+                src="/logos/Volto_logo.png"
                 alt="Volto Control LLP"
                 className="h-12 w-auto rounded-md object-contain mix-blend-multiply"
               />
@@ -59,6 +60,26 @@ export default function Footer() {
               {["Dairy & Food", "Pharmaceuticals", "Sugar & Distillery", "Textile", "Packaging", "Power Plants", "Rubber & Tyre", "FEC / Hotels"].map((ind) => (
                 <div key={ind} className="text-sm text-white/40">{ind}</div>
               ))}
+            </div>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="text-xs font-bold text-white/50 uppercase tracking-widest mb-4">Contact</h4>
+            <div className="space-y-3">
+              <a
+                href={companyContact.phoneHref}
+                className="block text-sm font-medium text-white/60 transition-colors hover:text-white"
+              >
+                {companyContact.phone}
+              </a>
+              <div className="text-sm text-white/40 leading-relaxed">
+                {companyContact.addressLines.map((line) => (
+                  <span key={line} className="block">
+                    {line}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>

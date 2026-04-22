@@ -44,7 +44,48 @@ const powerDistributionPortfolio = [
   "Synchronising Panel",
 ];
 
+type ProductImageConfig = {
+  src: string;
+  position?: string;
+};
+
 const normalizeProductName = (value: string) => value.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+const productImages: Record<string, ProductImageConfig> = {
+  "Main LT switch board": { src: "/images/Main LT switch board.jpg" },
+  "Power Control Centres (PCC)": { src: "/images/power-control-centre-pcc.webp" },
+  "Motor Control Centres (MCC)": { src: "/images/Motor_Control_Center.jpg" },
+  "Intelligent Motor Control Centres": { src: "/images/Intelligent Motor Control Centres.webp" },
+  "Distribution boards (all types in LT)": { src: "/images/Distribution boards (all types in LT).jpg" },
+  "Change Over Panel Boards": { src: "/images/Change Over Panel Boards.jpg" },
+  "A.M.F. Panels (for Generators)": { src: "/images/A.M.F. Panels (for Generators).jpg" },
+  "Feeder Pillars": { src: "/images/feeder pillars.webp" },
+  "Automatic Power Factor Control Panels": { src: "/images/Automatic Power Factor Control Panels.jpg" },
+  "Main lighting distribution boards": { src: "/images/Main lighting distribution boards.jpg" },
+  "Emergency lighting distribution boards": { src: "/images/Emergency lighting distribution boards.webp" },
+  "Lighting Panels (all types)": { src: "/images/Lighting Panels (all types).jpg" },
+  "HVAC Panels": { src: "/images/HVAC Panels.jpg" },
+  "Fire Fighting System Panels": { src: "/images/Fire Fighting System Panels.jpg" },
+  "Crane Control Panels": { src: "/images/Crane Control Panels.webp" },
+  "Welding Socket Distribution Board": { src: "/images/Welding Socket Distribution Board.webp" },
+  "GSM based Pump Control Panels": { src: "/images/GSM based Pump Control Panels.jpg" },
+  "AC Drive panels": { src: "/images/AC Drive panels.jpg" },
+  "DC Drive Panels": { src: "/images/DC Drive Panels.jpeg" },
+  "PLC based panels": { src: "/images/PLC based panels.jpg" },
+  "Soft Starter panels": { src: "/images/Soft Starter Panels.jpg" },
+  "Control & Relay Panels": { src: "/images/control & relay panels.jpg" },
+  "L.T. Distribution Boxes (16KVA/25KVA)": { src: "/images/L.T. Distribution Boxes 16KVA 25KVA.jpg" },
+  "AC distribution boards": { src: "/images/AC distribution boards.jpg" },
+  "DC distribution boards": { src: "/images/DC distribution boards.jpg" },
+  "Remote Tap Changing Control Panel": { src: "/images/Remote Tap Changing Control Panel.jpg" },
+  "Junction Boxes": { src: "/images/Junction Boxes.webp" },
+  "LT Bus Ducts (all types)": { src: "/images/LT Bus Ducts (all types).jpg" },
+  "Bay Marshalling Kiosks": { src: "/images/Bay Marshalling Kiosks.jpg" },
+  "Communication Boxes": { src: "/images/Communication Boxes.jpg" },
+  "Power supply Units": { src: "/images/Power supply Units.jpg" },
+  "Machine Automation Panels": { src: "/images/Machine Automation Panels.jpg" },
+  "GPRS Based Control Panels": { src: "/images/GPRS Based Control Panels.webp" },
+};
 
 export default function ProductsSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -210,30 +251,53 @@ export default function ProductsSection() {
         </div>
 
         <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
-          {productRange.map((product, i) => (
-            <article
-              key={product}
-              className="reveal rounded-2xl border border-[#DCE5F2] bg-white p-6 shadow-[0_10px_28px_rgba(15,23,42,0.08)] card-hover"
-              style={{ transitionDelay: `${i * 45}ms` }}
-              data-testid={`product-card-${i}`}
-            >
-              <div className="flex items-center justify-between mb-4">
-                <span className="inline-flex items-center rounded-full bg-[#0A1628] px-2.5 py-1 text-[10px] font-semibold tracking-[0.16em] text-white font-mono-stats">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="inline-flex items-center rounded-full border border-[#CDE0F8] bg-[#EEF5FF] px-2.5 py-1 text-[10px] font-semibold tracking-[0.14em] text-[#1565C0]">
-                  LT PANEL
-                </span>
-              </div>
+          {productRange.map((product, i) => {
+            const productImage = productImages[product];
 
-              <h3 className="text-[1.06rem] font-semibold text-[#0A1628] leading-snug">{product}</h3>
+            return (
+              <article
+                key={product}
+                className={`reveal overflow-hidden rounded-2xl border border-[#DCE5F2] bg-white shadow-[0_10px_28px_rgba(15,23,42,0.08)] card-hover ${
+                  productImage ? "" : "p-6"
+                }`}
+                style={{ transitionDelay: `${i * 45}ms` }}
+                data-testid={`product-card-${i}`}
+              >
+                {productImage && (
+                  <div
+                    className="w-full border-b border-[#DCE5F2]"
+                    style={{
+                      height: "clamp(11rem, 16vw, 12rem)",
+                      backgroundImage: `url("${productImage.src}")`,
+                      backgroundPosition: productImage.position ?? "center",
+                      backgroundRepeat: "no-repeat",
+                      backgroundSize: "cover",
+                    }}
+                    role="img"
+                    aria-label={`${product} panel image`}
+                  />
+                )}
 
-              <div className="mt-5 pt-4 border-t border-[#E8EEF6]">
-                <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#7A8CA6] mb-1.5">Custom Built</div>
-                <div className="text-sm text-[#2B3A4F]">Manufactured for industrial, commercial, utility, and infrastructure applications.</div>
-              </div>
-            </article>
-          ))}
+                <div className={productImage ? "p-6" : ""}>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="inline-flex items-center rounded-full bg-[#0A1628] px-2.5 py-1 text-[10px] font-semibold tracking-[0.16em] text-white font-mono-stats">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="inline-flex items-center rounded-full border border-[#CDE0F8] bg-[#EEF5FF] px-2.5 py-1 text-[10px] font-semibold tracking-[0.14em] text-[#1565C0]">
+                      LT PANEL
+                    </span>
+                  </div>
+
+                  <h3 className="text-[1.06rem] font-semibold text-[#0A1628] leading-snug">{product}</h3>
+
+                  <div className="mt-5 pt-4 border-t border-[#E8EEF6]">
+                    <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#7A8CA6] mb-1.5">Custom Built</div>
+                    <div className="text-sm text-[#2B3A4F]">Manufactured for industrial, commercial, utility, and infrastructure applications.</div>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

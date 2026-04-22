@@ -3,7 +3,6 @@ import { useEffect, useMemo, useState } from "react";
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "Products", href: "#products" },
-  { label: "Automation", href: "#automation" },
   { label: "Clients", href: "#clients" },
   { label: "Exports", href: "#exports" },
   { label: "Quality", href: "#quality" },
@@ -116,7 +115,7 @@ export default function Navbar() {
               aria-label="Go to top of page"
             >
               <img
-                src="/logos/Volto_logo.jpg"
+                src="/logos/Volto_logo.png"
                 alt="Volto Control LLP"
                 className={`w-auto object-contain transition-all duration-[350ms] ease-[cubic-bezier(0.22,1,0.36,1)] mix-blend-multiply ${scrolled ? "h-10" : "h-12"}`}
               />

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { companyContact } from "@/lib/company";
 
 const queryTypes = [
   "Products & Specifications",
@@ -69,7 +70,7 @@ export default function ContactSection() {
             {/* Logo */}
             <div className="inline-flex items-center justify-center p-2 mb-8 rounded-xl bg-white/95 border border-white/15 shadow-[0_0_24px_rgba(255,255,255,0.08)]">
               <img
-                src="/logos/Volto_logo.jpg"
+                src="/logos/Volto_logo.png"
                 alt="Volto Control LLP"
                 className="h-16 w-auto rounded-md object-contain mix-blend-multiply"
                 loading="lazy"
@@ -89,7 +90,13 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <div className="text-xs text-white/30 uppercase tracking-wider mb-0.5">Address</div>
-                  <div className="text-sm text-white/70">Vadodara, Gujarat, India — 390 XXX</div>
+                  <div className="text-sm text-white/70 leading-relaxed">
+                    {companyContact.addressLines.map((line) => (
+                      <span key={line} className="block">
+                        {line}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
 
@@ -99,7 +106,12 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <div className="text-xs text-white/30 uppercase tracking-wider mb-0.5">Phone</div>
-                  <div className="text-sm text-white/70">+91 265 XXX XXXX</div>
+                  <a
+                    href={companyContact.phoneHref}
+                    className="text-sm text-white/70 transition-colors hover:text-white"
+                  >
+                    {companyContact.phone}
+                  </a>
                 </div>
               </div>
 

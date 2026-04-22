@@ -14,6 +14,7 @@ import ExportsSection from "@/components/ExportsSection";
 import QualitySection from "@/components/QualitySection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import FloatingContactCTA from "@/components/FloatingContactCTA";
 
 const queryClient = new QueryClient();
 
@@ -83,6 +84,7 @@ function Home() {
         )}
       </main>
 
+      <FloatingContactCTA />
       {isMainContentVisible && <Footer />}
     </div>
   );
