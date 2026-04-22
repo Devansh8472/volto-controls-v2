@@ -264,17 +264,16 @@ export default function ProductsSection() {
                 data-testid={`product-card-${i}`}
               >
                 {productImage && (
-                  <div
-                    className="w-full border-b border-[#DCE5F2]"
+                  <img
+                    src={productImage.src}
+                    alt={`${product} panel image`}
+                    className="w-full border-b border-[#DCE5F2] object-cover"
                     style={{
                       height: "clamp(11rem, 16vw, 12rem)",
-                      backgroundImage: `url("${productImage.src}")`,
-                      backgroundPosition: productImage.position ?? "center",
-                      backgroundRepeat: "no-repeat",
-                      backgroundSize: "cover",
+                      objectPosition: productImage.position ?? "center",
                     }}
-                    role="img"
-                    aria-label={`${product} panel image`}
+                    loading="lazy"
+                    decoding="async"
                   />
                 )}
 

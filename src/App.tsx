@@ -24,35 +24,56 @@ function Home() {
   const [isMainContentVisible, setIsMainContentVisible] = useState(false);
 
   useEffect(() => {
-    if (isHeroVideoReady) return;
+    const connection = (
+      navigator as Navigator & {
+        connection?: {
+          saveData?: boolean;
+          effectiveType?: string;
+        };
+      }
+    ).connection;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isMobileViewport = window.matchMedia("(max-width: 1023px)").matches;
+    const isConstrainedNetwork =
+      Boolean(connection?.saveData) || /(^|-)2g|3g/i.test(connection?.effectiveType ?? "");
+
+    if (isMobileViewport || prefersReducedMotion || isConstrainedNetwork) {
+      setIsHeroVideoReady(true);
+      setIsHeroContentVisible(true);
+      setIsMainContentVisible(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isHeroVideoReady || isMainContentVisible) return;
 
     // Fallback so users are never blocked if autoplay or video loading is restricted.
     const fallbackTimer = window.setTimeout(() => {
       setIsHeroVideoReady(true);
-    }, 3200);
+    }, 1800);
 
     return () => window.clearTimeout(fallbackTimer);
-  }, [isHeroVideoReady]);
+  }, [isHeroVideoReady, isMainContentVisible]);
 
   useEffect(() => {
-    if (!isHeroVideoReady) return;
+    if (!isHeroVideoReady || isHeroContentVisible) return;
 
     const heroContentTimer = window.setTimeout(() => {
       setIsHeroContentVisible(true);
     }, 220);
 
     return () => window.clearTimeout(heroContentTimer);
-  }, [isHeroVideoReady]);
+  }, [isHeroVideoReady, isHeroContentVisible]);
 
   useEffect(() => {
-    if (!isHeroContentVisible) return;
+    if (!isHeroContentVisible || isMainContentVisible) return;
 
     const mainContentTimer = window.setTimeout(() => {
       setIsMainContentVisible(true);
-    }, 360);
+    }, 260);
 
     return () => window.clearTimeout(mainContentTimer);
-  }, [isHeroContentVisible]);
+  }, [isHeroContentVisible, isMainContentVisible]);
 
   return (
     <div className="min-h-screen">

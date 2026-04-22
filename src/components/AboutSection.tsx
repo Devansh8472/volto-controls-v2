@@ -58,9 +58,47 @@ export default function AboutSection() {
         </div>
 
         {/* Two column layout */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+        <div className="grid lg:grid-cols-2 gap-16 items-start mb-20">
           {/* Timeline */}
           <div className="reveal-left">
+            <div className="reveal mb-10">
+              <article className="bg-white border border-[#E2E8F0] rounded-2xl p-4 sm:p-5 shadow-sm">
+                <div className="grid sm:grid-cols-[minmax(0,220px)_1fr] gap-5 items-center">
+                  <img
+                    src="/images/Founder .jpeg"
+                    alt="Mr. Vidya Bhushan, Founder of Volto Control LLP"
+                    className="w-full h-[300px] sm:h-[330px] object-cover object-center rounded-xl border border-[#E2E8F0]"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div>
+                    <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#EAF4FF] text-[11px] tracking-wider uppercase font-bold text-[#1565C0] mb-3">
+                      Founder
+                    </div>
+                    <h4 className="text-2xl font-bold text-[#0A1628] leading-tight mb-2">Mr. Vidya Bhushan</h4>
+                    <p className="text-sm font-semibold text-[#1565C0] uppercase tracking-wider mb-3">Founder, Volto Control LLP</p>
+                    <p className="text-sm text-[#555] leading-relaxed">
+                      Leading Volto with a focus on reliability, precision engineering, and long-term client trust.
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div className="reveal mb-10 rounded-2xl border border-[#DCE8F8] bg-gradient-to-r from-[#F6FAFF] to-white p-5 sm:p-6 shadow-sm">
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#EAF4FF] text-[11px] tracking-wider uppercase font-bold text-[#1565C0] mb-3">
+                Founder&apos;s Note
+              </div>
+              <h4 className="text-lg sm:text-xl font-bold text-[#0A1628] mb-3">Founder&apos;s Note - Volto Control LLP</h4>
+              <p className="text-sm sm:text-[0.95rem] text-[#44566C] leading-relaxed">
+                A B.Tech graduate in Electrical Engineering (2015), our founder began his career at Larsen &amp; Toubro,
+                followed by a significant tenure at Pantech Controls, where he successfully delivered turnkey projects in
+                the food and beverage industry. With over a decade of comprehensive project experience spanning design,
+                execution, and commissioning, he established Volto Control LLP with a singular vision - to deliver precise,
+                reliable, and innovative control solutions that drive industrial excellence.
+              </p>
+            </div>
+
             <h3 className="text-xl font-bold text-[#0A1628] mb-8 flex items-center gap-3">
               <div className="w-8 h-0.5 bg-[#1565C0]" />
               Our Journey
@@ -92,7 +130,7 @@ export default function AboutSection() {
                 is backed by two decades of precision, passion, and industrial expertise."
               </p>
               <footer className="mt-3 text-sm text-[#1565C0] font-semibold">
-                — Volto Control LLP Leadership Team
+                - Mr. Vidya Bhushan, Founder, Volto Control LLP
               </footer>
             </blockquote>
 

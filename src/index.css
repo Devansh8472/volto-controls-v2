@@ -552,6 +552,25 @@ html {
   contain-intrinsic-size: auto;
 }
 
+@media (max-width: 1023px) {
+  .section-white,
+  .section-gray,
+  .section-navy {
+    content-visibility: visible;
+    contain-intrinsic-size: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .reveal,
+  .reveal-left,
+  .reveal-right {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* Mono font for stats */
 .font-mono-stats {
   font-family: 'JetBrains Mono', monospace;

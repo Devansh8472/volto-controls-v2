@@ -24,6 +24,7 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
   const [hasAnimated, setHasAnimated] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
   const [videoFailed, setVideoFailed] = useState(false);
+  const [shouldUseVideo, setShouldUseVideo] = useState(true);
   const hasNotifiedVideoReady = useRef(false);
   const [operationsState, setOperationsState] = useState({
     load: 87.3,
@@ -46,6 +47,36 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
   const abbLogoSrc = `${baseUrl}images/ABB.png`;
   const exideLogoSrc = `${baseUrl}images/Exide.png`;
   const keiLogoSrc = `${baseUrl}images/Kei%20Logo.jpg`;
+
+  const notifyVideoReady = () => {
+    if (hasNotifiedVideoReady.current) return;
+    hasNotifiedVideoReady.current = true;
+    onVideoReady?.();
+  };
+
+  useEffect(() => {
+    const connection = (
+      navigator as Navigator & {
+        connection?: {
+          saveData?: boolean;
+          effectiveType?: string;
+        };
+      }
+    ).connection;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isMobileViewport = window.matchMedia("(max-width: 767px)").matches;
+    const isConstrainedNetwork =
+      Boolean(connection?.saveData) || /(^|-)2g|3g/i.test(connection?.effectiveType ?? "");
+    const canUseVideo = !prefersReducedMotion && !isMobileViewport && !isConstrainedNetwork;
+
+    setShouldUseVideo(canUseVideo);
+
+    if (!canUseVideo) {
+      setVideoReady(false);
+      setVideoFailed(true);
+      notifyVideoReady();
+    }
+  }, []);
 
   useEffect(() => {
     if (hasAnimated) return;
@@ -119,54 +150,50 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
-  const notifyVideoReady = () => {
-    if (hasNotifiedVideoReady.current) return;
-    hasNotifiedVideoReady.current = true;
-    onVideoReady?.();
-  };
-
   return (
-    <section id="hero" className="relative min-h-screen hero-bg overflow-hidden flex items-center">
+    <section id="hero" className="relative min-h-[100svh] md:min-h-screen hero-bg overflow-hidden flex items-center">
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img
           src={heroPosterSrc}
           alt=""
           aria-hidden="true"
-          className={`absolute inset-0 h-full w-full object-cover object-center brightness-110 contrast-105 transition-opacity duration-700 ${videoReady && !videoFailed ? "opacity-0" : "opacity-72"}`}
+          className={`absolute inset-0 h-full w-full object-cover object-center brightness-110 contrast-105 transition-opacity duration-700 ${shouldUseVideo && videoReady && !videoFailed ? "opacity-0" : "opacity-72"}`}
           loading="eager"
           decoding="async"
         />
-        <video
-          className={`absolute inset-0 h-full w-full object-cover object-center brightness-110 contrast-105 transition-opacity duration-700 ${videoReady && !videoFailed ? "opacity-58" : "opacity-0"}`}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          poster={heroPosterSrc}
-          aria-hidden="true"
-          onLoadedData={() => {
-            setVideoReady(true);
-            setVideoFailed(false);
-            notifyVideoReady();
-          }}
-          onCanPlay={() => {
-            setVideoReady(true);
-            setVideoFailed(false);
-            notifyVideoReady();
-          }}
-          onError={() => {
-            setVideoReady(false);
-            setVideoFailed(true);
-            notifyVideoReady();
-          }}
-        >
-          <source media="(max-width: 767px)" srcSet={heroVideoMobileSrc} type="video/mp4" />
-          <source media="(min-width: 768px)" srcSet={heroVideoDesktopSrc} type="video/mp4" />
-          <source src={heroVideoSrc} type="video/mp4" />
-        </video>
-        <div className={`absolute inset-0 ${videoReady && !videoFailed ? "bg-[radial-gradient(120%_95%_at_12%_4%,rgba(255,255,255,0.92)_0%,rgba(237,246,255,0.72)_46%,rgba(228,240,253,0.5)_100%)]" : "bg-[radial-gradient(120%_95%_at_12%_4%,rgba(255,255,255,0.95)_0%,rgba(241,248,255,0.82)_46%,rgba(232,243,255,0.68)_100%)]"}`} />
-        <div className={`absolute inset-0 ${videoReady && !videoFailed ? "bg-[linear-gradient(118deg,rgba(255,255,255,0.58)_0%,rgba(235,246,255,0.36)_44%,rgba(194,227,255,0.28)_100%)]" : "bg-[linear-gradient(118deg,rgba(255,255,255,0.72)_0%,rgba(235,246,255,0.5)_44%,rgba(194,227,255,0.32)_100%)]"}`} />
+        {shouldUseVideo && (
+          <video
+            className={`absolute inset-0 h-full w-full object-cover object-center brightness-110 contrast-105 transition-opacity duration-700 ${videoReady && !videoFailed ? "opacity-58" : "opacity-0"}`}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster={heroPosterSrc}
+            aria-hidden="true"
+            onLoadedData={() => {
+              setVideoReady(true);
+              setVideoFailed(false);
+              notifyVideoReady();
+            }}
+            onCanPlay={() => {
+              setVideoReady(true);
+              setVideoFailed(false);
+              notifyVideoReady();
+            }}
+            onError={() => {
+              setVideoReady(false);
+              setVideoFailed(true);
+              notifyVideoReady();
+            }}
+          >
+            <source media="(max-width: 767px)" srcSet={heroVideoMobileSrc} type="video/mp4" />
+            <source media="(min-width: 768px)" srcSet={heroVideoDesktopSrc} type="video/mp4" />
+            <source src={heroVideoSrc} type="video/mp4" />
+          </video>
+        )}
+        <div className={`absolute inset-0 ${shouldUseVideo && videoReady && !videoFailed ? "bg-[radial-gradient(120%_95%_at_12%_4%,rgba(255,255,255,0.92)_0%,rgba(237,246,255,0.72)_46%,rgba(228,240,253,0.5)_100%)]" : "bg-[radial-gradient(120%_95%_at_12%_4%,rgba(255,255,255,0.95)_0%,rgba(241,248,255,0.82)_46%,rgba(232,243,255,0.68)_100%)]"}`} />
+        <div className={`absolute inset-0 ${shouldUseVideo && videoReady && !videoFailed ? "bg-[linear-gradient(118deg,rgba(255,255,255,0.58)_0%,rgba(235,246,255,0.36)_44%,rgba(194,227,255,0.28)_100%)]" : "bg-[linear-gradient(118deg,rgba(255,255,255,0.72)_0%,rgba(235,246,255,0.5)_44%,rgba(194,227,255,0.32)_100%)]"}`} />
       </div>
 
       {/* Animated grid */}
