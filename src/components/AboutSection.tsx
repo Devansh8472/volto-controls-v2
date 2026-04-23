@@ -52,7 +52,7 @@ export default function AboutSection() {
             Engineering Excellence Since 2002
           </h2>
           <p className="text-[#555] max-w-2xl mx-auto text-base leading-relaxed">
-            From a local electrical panel manufacturer to a trusted electrical turnkey solutions provider — 
+            From a local electrical panel manufacturer to a trusted electrical turnkey solutions provider —
             Volto Control LLP has grown into one of India's most trusted engineering companies.
           </p>
         </div>
@@ -91,11 +91,8 @@ export default function AboutSection() {
               </div>
               <h4 className="text-lg sm:text-xl font-bold text-[#0A1628] mb-3">Founder&apos;s Note - Volto Control LLP</h4>
               <p className="text-sm sm:text-[0.95rem] text-[#44566C] leading-relaxed">
-                A B.Tech graduate in Electrical Engineering (2015), our founder began his career at Larsen &amp; Toubro,
-                followed by a significant tenure at Pantech Controls, where he successfully delivered turnkey projects in
-                the food and beverage industry. With over a decade of comprehensive project experience spanning design,
-                execution, and commissioning, he established Volto Control LLP with a singular vision - to deliver precise,
-                reliable, and innovative control solutions that drive industrial excellence.
+                A B.Tech graduate in Electrical Engineering, our founder began his professional journey with Larsen &amp; Toubro, gaining early exposure to large-scale industrial systems. He went on to build significant expertise at Pantech Controls, where he successfully led and delivered turnkey projects in the food and beverage sector.
+                Over the past decade, this experience has evolved into a comprehensive command of the entire project lifecycle—from design and engineering to execution and commissioning. With a strong focus on precision, reliability, and performance, he founded Volto Control LLP with a clear vision: to deliver intelligent control solutions that drive industrial excellence.
               </p>
             </div>
 
@@ -126,7 +123,7 @@ export default function AboutSection() {
           <div className="reveal-right">
             <blockquote className="cyan-border-left mb-8">
               <p className="text-lg italic text-[#333] leading-relaxed">
-                "We don't just manufacture panels — we engineer reliability. Every project we undertake 
+                "We don't just manufacture panels — we engineer reliability. Every project we undertake
                 is backed by two decades of precision, passion, and industrial expertise."
               </p>
               <footer className="mt-3 text-sm text-[#1565C0] font-semibold">
@@ -135,13 +132,13 @@ export default function AboutSection() {
             </blockquote>
 
             <p className="text-[#555] leading-relaxed mb-6">
-              Incorporated in {companyContact.cityState} - part of the NCR industrial corridor - Volto Control LLP specializes 
-              in designing, manufacturing, and supplying high-quality electrical control panels and automation systems 
+              Incorporated in {companyContact.cityState} - part of the NCR industrial corridor - Volto Control LLP specializes
+              in designing, manufacturing, and supplying high-quality electrical control panels and automation systems
               for industries across India and internationally.
             </p>
 
             <p className="text-[#555] leading-relaxed mb-8">
-              As an authorized channel partner of ABB UPS and allied with global giants like Siemens, Schneider Electric, 
+              As an authorized channel partner of ABB UPS and allied with global giants like Siemens, Schneider Electric,
               Mitsubishi, and Danfoss, we bring world-class technology to every installation.
             </p>
 
