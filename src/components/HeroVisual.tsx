@@ -108,21 +108,26 @@ export default function HeroVisual({ operationsState, liveTimeLabel, completionS
           </circle>
         </svg>
 
-        {/* Power Source (Transformer) - Left */}
-        <div className="absolute left-[6%] top-[35%] w-[16%] aspect-[0.7] rounded-lg bg-gradient-to-b from-[#2d3748] to-[#1a202c] border border-[#4a5568]/50 shadow-xl">
-          {/* Cooling fins */}
-          <div className="absolute inset-x-0 top-[15%] flex justify-center gap-[2px]">
-            {[...Array(5)].map((_, i) => (
-              <div key={i} className="w-[2px] h-[70%] bg-[#4a5568]/40 rounded-full" />
-            ))}
-          </div>
-          {/* Bushings on top */}
-          <div className="absolute -top-[12%] left-[25%] w-[12%] h-[15%] rounded-t bg-[#718096]" />
-          <div className="absolute -top-[12%] right-[25%] w-[12%] h-[15%] rounded-t bg-[#718096]" />
-          {/* Status light */}
-          <div className="absolute bottom-[12%] left-1/2 -translate-x-1/2 w-[8px] h-[8px] rounded-full bg-[#22c55e] shadow-[0_0_8px_rgba(34,197,94,0.6)]" />
-        </div>
-        <div className="absolute left-[6%] top-[52%] text-[9px] text-[#8A9AB0] font-medium tracking-wide">Power In</div>
+         {/* Electric Generator - Left */}
+         <div className="absolute left-[6%] top-[30%] w-[18%] aspect-[0.8] rounded-lg bg-gradient-to-b from-[#2d3748] to-[#1a202c] border border-[#4a5568]/50 shadow-xl">
+           {/* Generator body details */}
+           <div className="absolute inset-0 rounded-lg border border-[#4a5568]/30">
+             {/* Stator winding representation */}
+             <div className="absolute inset-[10%] border-2 border-dashed border-[#00BCD4]/30 rounded-lg" />
+             {/* Rotor shaft */}
+             <div className="absolute left-1/2 -translate-x-1/2 top-1/4 w-[4%] h-[50%] bg-gradient-to-t from-[#6b7280] to-[#374151] rounded-full" />
+             {/* Cooling vents */}
+             <div className="absolute inset-x-0 top-[20%] flex justify-center gap-[1px]">
+               {[...Array(8)].map((_, i) => (
+                 <div key={i} className="w-[1px] h-[40%] bg-[#4a5568]/20 rounded-full" />
+               ))}
+             </div>
+             {/* Terminal box */}
+             <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-[30%] h-[16%] bg-[#1a202c] border border-[#4a5568]/40" />
+           </div>
+           {/* Generator label */}
+           <div className="absolute bottom-[5%] left-1/2 -translate-x-1/2 text-[8px] text-[#8A9AB0] font-medium tracking-wide">AC Generator</div>
+         </div>
 
         {/* Control Panel Cabinet - Center (Hero) */}
         <div className="absolute left-[38%] top-[22%] w-[26%] aspect-[0.65] rounded-xl bg-gradient-to-br from-[#1a2332] via-[#0f1724] to-[#1a2332] border border-[#2d3748] shadow-[0_12px_40px_rgba(0,0,0,0.5)]">
@@ -172,27 +177,28 @@ export default function HeroVisual({ operationsState, liveTimeLabel, completionS
           </div>
         </div>
 
-        {/* Motor/Pump - Right */}
-        <div className="absolute right-[8%] top-[38%] w-[18%] aspect-square">
-          {/* Motor body */}
-          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#2d3748] via-[#4a5568] to-[#2d3748] border-2 border-[#4a5568]/60 shadow-xl flex items-center justify-center">
-            {/* Rotating fan/shaft indicator */}
-            <div
-              className="w-[40%] h-[40%] rounded-full border-2 border-[#00BCD4]/40 flex items-center justify-center"
-              style={{
-                animation: reducedMotion ? 'none' : 'spin 3s linear infinite',
-              }}
-            >
-              <div className="w-full h-[2px] bg-[#00BCD4]/60 absolute" />
-              <div className="w-[2px] h-full bg-[#00BCD4]/60 absolute" />
-            </div>
-            {/* Center cap */}
-            <div className="absolute w-[16%] h-[16%] rounded-full bg-[#1a202c] border border-[#4a5568]" />
-          </div>
-          {/* Motor base */}
-          <div className="absolute -bottom-[15%] left-[15%] right-[15%] h-[20%] rounded bg-[#2d3748] border border-[#4a5568]/50" />
-        </div>
-        <div className="absolute right-[8%] top-[58%] text-[9px] text-[#8A9AB0] font-medium tracking-wide">Process Out</div>
+         {/* Electrical Load/Output - Right */}
+         <div className="absolute right-[8%] top-[35%] w-[18%] aspect-square">
+           {/* Load representation - Industrial motor */}
+           <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#2d3748] via-[#4a5568] to-[#2d3748] border-2 border-[#4a5568]/60 shadow-xl flex items-center justify-center">
+             {/* Motor housing */}
+             <div className="w-[70%] h-[70%] rounded-full bg-gradient-to-b from-[#374151] to-[#1f2937] flex items-center justify-center">
+               {/* Shaft */}
+               <div className="w-[4px] h-[60%] bg-[#6b7280] rounded-full" />
+               {/* Cooling fins */}
+               <div className="absolute -bottom-[10%] left-1/2 -translate-x-1/2 w-[60%] h-[20%] flex justify-center gap-[1px]">
+                 {[...Array(6)].map((_, i) => (
+                   <div key={i} className="w-[1px] h-[60%] bg-[#4a5568]/30 rounded-full" />
+                 ))}
+               </div>
+             </div>
+             {/* Motor base */}
+             <div className="absolute -bottom-[20%] left-1/2 -translate-x-1/2 w-[50%] h-[10%] bg-[#374151] rounded-t" />
+           </div>
+           {/* Motor label */}
+           <div className="absolute bottom-[5%] left-1/2 -translate-x-1/2 text-[8px] text-[#8A9AB0] font-medium tracking-wide">Industrial Load</div>
+         </div>
+         <div className="absolute right-[8%] top-[55%] text-[9px] text-[#8A9AB0] font-medium tracking-wide">Power Out</div>
 
         {/* Animated output pulse from motor */}
         {!reducedMotion && (

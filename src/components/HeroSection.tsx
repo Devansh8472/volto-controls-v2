@@ -1,15 +1,15 @@
 import { useState, useEffect, useMemo, useRef } from "react";
 import HeroVisual from "./HeroVisual";
 
-const processStages = ["Utility Feed", "PCC Build", "MCC Wiring", "PLC Logic", "Commissioning"];
+const processStages = ["Generator Selection", "Panel Design", "Fabrication", "Wiring & Programming", "Installation & Testing"];
 
 const liveActivities = [
-  "Incoming feeder synchronized and load balanced for Panel Line-03.",
-  "PLC ladder block deployed to utility transfer logic and verified.",
-  "Panel instrumentation tags refreshed with live telemetry from APFC and MCC sections.",
-  "Thermal scan passed for busbar chamber with stable temperature profile.",
-  "Power factor correction bank auto-switched to maintain PF above 0.98.",
-  "Remote diagnostics heartbeat stable across all active control nodes.",
+  "AC generator selected for 500kVA prime power requirement with AVR synchronization.",
+  "Electrical control panel layout finalized with segregated power and control sections.",
+  "Busbar fabrication completed for MCC section with 800A rating and heat rise verification.",
+  "PLC wiring and termination verified for generator protection and control circuits.",
+  "Factory acceptance test passed for generator control panel with load bank simulation.",
+  "Site installation team mobilized for generator foundation and panel placement preparation.",
 ];
 
 const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
@@ -217,31 +217,31 @@ export default function HeroSection({ showContent = true, onVideoReady }: HeroSe
         <div className="grid lg:grid-cols-[minmax(0,1.12fr)_minmax(0,1fr)] gap-12 lg:gap-14 items-center lg:items-start">
           {/* Left content */}
           <div className="animate-fade-in-left w-full flex flex-col items-center text-center lg:pt-2">
-            {/* Badge */}
-            <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white/80 border border-[#BCD6F2] mb-6 shadow-[0_8px_24px_rgba(19,72,132,0.1)] backdrop-blur-sm">
-              <div className="w-2 h-2 rounded-full bg-[#1565C0] animate-pulse" />
-              <span className="text-xs font-semibold text-[#1565C0] tracking-[0.15em] uppercase">
-                Electrical Turnkey Experts
-              </span>
-            </div>
+             {/* Badge */}
+             <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white/80 border border-[#BCD6F2] mb-6 shadow-[0_8px_24px_rgba(19,72,132,0.1)] backdrop-blur-sm">
+               <div className="w-2 h-2 rounded-full bg-[#1565C0] animate-pulse" />
+               <span className="text-xs font-semibold text-[#1565C0] tracking-[0.15em] uppercase">
+                 Power Generation Experts
+               </span>
+             </div>
 
             {/* Headline */}
             <div className="relative w-full max-w-[44rem] mb-9 overflow-hidden rounded-[2.1rem] border border-[#D2E3F7] bg-[linear-gradient(118deg,rgba(255,255,255,0.95)_0%,rgba(245,251,255,0.88)_42%,rgba(218,239,255,0.78)_100%)] px-7 py-10 backdrop-blur-2xl shadow-[0_24px_60px_rgba(32,76,126,0.18)] sm:px-10 sm:py-12 lg:px-12 lg:py-14">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_10%,rgba(113,219,255,0.24),transparent_60%)]" />
               <div className="absolute inset-0 bg-[linear-gradient(130deg,rgba(255,255,255,0.26)_0%,rgba(255,255,255,0.08)_48%,rgba(7,69,117,0.1)_100%)]" />
               <div className="relative text-center">
-                <h1 className="text-6xl sm:text-7xl lg:text-[6.2rem] font-bold text-[#09213E] leading-[0.95]" style={{ fontFamily: 'Syne, sans-serif' }}>
-                  Volto
-                </h1>
-                <p className="mt-4 text-base sm:text-lg lg:text-xl font-semibold tracking-[0.46em] uppercase text-[#1565C0]">
-                  Control LLP
-                </p>
-                <div className="mx-auto mt-6 h-px w-56 bg-gradient-to-r from-transparent via-[#1f79d5]/70 to-transparent" />
-                <p className="mt-6 text-base sm:text-lg text-[#41566F]">
-                  India's trusted partner for electrical control systems
-                  <br />
-                  <span className="inline-block">and turnkey power solutions.</span>
-                </p>
+                 <h1 className="text-6xl sm:text-7xl lg:text-[6.2rem] font-bold text-[#09213E] leading-[0.95]" style={{ fontFamily: 'Syne, sans-serif' }}>
+                   Volto
+                 </h1>
+                 <p className="mt-4 text-base sm:text-lg lg:text-xl font-semibold tracking-[0.46em] uppercase text-[#1565C0]">
+                   Power LLP
+                 </p>
+                 <div className="mx-auto mt-6 h-px w-56 bg-gradient-to-r from-transparent via-[#1f79d5]/70 to-transparent" />
+                 <p className="mt-6 text-base sm:text-lg text-[#41566F]">
+                   India's trusted partner for electric generator systems
+                   <br />
+                   <span className="inline-block">and complete turnkey power solutions.</span>
+                 </p>
               </div>
             </div>
 
